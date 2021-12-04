@@ -1,13 +1,97 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap");
+
+:root {
+  --root-background: rgba(148, 58, 233, 0.5);
+  --contact-us-left-color: rgb(255, 255, 255);
+  --contact-us-right-color: rgb(255, 251, 0);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+}
+#root {
+  min-height: 100vh;
+  background-color: var(--root-background);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.contact__us {
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  width: clamp(810px, 80%, 900px);
+
+  background: linear-gradient(
+    90deg,
+    var(--contact-us-left-color) 80%,
+    var(--contact-us-right-color) 80%
+  );
+}
+.contact__sections {
+  padding: 1rem;
+}
+.contact__sections form {
+  display: flex;
+  flex-direction: column;
+}
+.contact__sections form h1 {
+  text-transform: capitalize;
+  margin: 1rem 1rem 1rem 0;
+}
+
+form > *:not(p, h1) {
+  margin: 0.5rem 0rem;
+}
+
+.contact__sections:nth-child(2) {
+  background-color: black;
+  color: var(--contact-us-right-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact__section__item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem 0;
+}
+.contact__section__item svg {
+  font-size: 2rem;
+  margin: 0.5rem 0;
+}
+
+form > input,
+textarea,
+button {
+  padding: 0.5rem;
+  text-transform: capitalize;
+}
+button {
+  width: 5rem;
+  background-color: black;
+  color: white;
+}
+button:hover {
+  background-color: brown;
+}
+textarea {
+  resize: vertical;
+  min-height: 4rem;
+}
+
+@media screen and (max-width: 810px) {
+  .contact__us {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    background: var(--contact-us-left-color);
+    padding: 0;
+  }
 }
